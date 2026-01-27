@@ -2,7 +2,7 @@
   "name": "@cupkappu/notification-service",
   "version": "1.0.0",
   "description": "A self-hosted, multi-device web push notification service",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
