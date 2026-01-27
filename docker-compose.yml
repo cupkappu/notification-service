@@ -1,0 +1,12 @@
+services:
+  notification-service:
+    image: ghcr.io/${GITHUB_REPOSITORY:-kifuko/notification-service}:latest
+    container_name: notification-service
+    ports:
+      - "3000:3000"
+    environment:
+      - VAPID_EMAIL=${VAPID_EMAIL:-mailto:admin@example.com}
+      - VAPID_SUBJECT=${VAPID_SUBJECT:-mailto:admin@example.com}
+      - VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+      - VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+    restart: unless-stopped
