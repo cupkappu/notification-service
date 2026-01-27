@@ -1,0 +1,43 @@
+{
+  "name": "@cupkappu/notification-service",
+  "version": "1.0.0",
+  "description": "A self-hosted, multi-device web push notification service",
+  "private": false,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "generate-vapid": "node scripts/generate-vapid.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "next": "15.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "web-push": "^3.6.7"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/web-push": "^3.6.4",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cupkappu/notification-service.git"
+  },
+  "keywords": [
+    "push-notifications",
+    "web-push",
+    "service-worker",
+    "nextjs"
+  ],
+  "author": "cupkappu",
+  "license": "MIT"
+}
