@@ -2,7 +2,7 @@ import Database from 'better-sqlite3';
 import path from 'path';
 import crypto from 'crypto';
 
-const dbPath = path.join(process.cwd(), 'subscriptions.db');
+const dbPath = process.env.DATABASE_PATH || path.join(process.cwd(), 'subscriptions.db');
 const db = new Database(dbPath);
 
 // Initialize the database with multi-device support
