@@ -52,7 +52,15 @@ export default function Home() {
       // Generate or retrieve userId from localStorage
       let storedUserId = localStorage.getItem('push_userId');
       if (!storedUserId) {
-        storedUserId = crypto.randomUUID();
+        // Use crypto.randomUUID() if available, fallback to custom implementation
+        const uuid = typeof crypto !== 'undefined' && crypto.randomUUID
+          ? crypto.randomUUID()
+          : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+              const r = (Math.random() * 16) | 0;
+              const v = c === 'x' ? r : (r & 0x3) | 0x8;
+              return v.toString(16);
+            });
+        storedUserId = uuid;
         localStorage.setItem('push_userId', storedUserId);
       }
       setUserId(storedUserId);
