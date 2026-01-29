@@ -54,3 +54,5 @@ jobs:
           build-args: |
             VAPID_EMAIL=mailto:${{ github.actor }}@users.noreply.github.com
           provenance: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
