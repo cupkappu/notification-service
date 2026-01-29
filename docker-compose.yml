@@ -1,6 +1,6 @@
 services:
   notification-service:
-    image: ghcr.io/${GITHUB_REPOSITORY:-kifuko/notification-service}:latest
+    image: ghcr.io/${GITHUB_REPOSITORY:-cupkappu/notification-service}:latest
     container_name: notification-service
     ports:
       - "3000:3000"
