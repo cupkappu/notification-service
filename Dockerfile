@@ -1,11 +1,13 @@
-FROM node:20-alpine AS base
+FROM node:20-bookworm AS base
 
-# Use prebuilt binaries instead of compiling from source (fixes QEMU arm64 builds)
+# Use prebuilt binaries for better-sqlite3 (Debian has glibc)
 ENV npm_config_build_from_source=false
 
 # Install dependencies only when needed
 FROM base AS deps
-RUN apk add --no-cache libc6-compat
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libc6-compat \
+    && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
